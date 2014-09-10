@@ -13,8 +13,8 @@ public class Main {
 
 		// 1
 		System.out.println("1:");
-		pattern = Pattern.compile("1+(1*01{1,}){2,}[01]");
-		matcher = pattern.matcher("111110101111010110");
+		pattern = Pattern.compile("1+(((1*01+){2,})|((1*01+){1}0))");
+		matcher = pattern.matcher("11111010");
 		System.out.println(matcher.matches());
 
 		// end 1
