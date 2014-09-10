@@ -134,7 +134,7 @@ public class Main {
 			// f
 			System.out.println("\nf:");
 			p = Pattern
-					.compile("([\\w]|[.-]){3,}[@]([a-z,0-9]){3,}[.]([a-z]){2,}");
+					.compile("([\\w]|[.-]){3,}[@]([a-z0-9]){3,}[.]([a-z]){2,}");
 			m = p.matcher("qqw.dMas-ter_gip@gmail.comsadasd.ascas.asaasdcas.ascas@asc.sr");//
 			while (m.find()) {
 				System.out.println(m.group());
@@ -159,17 +159,17 @@ public class Main {
 			p = Pattern
 					.compile("[юбейлмнпярсу](\\d){3}[юбейлмнпярсу]{2}((\\d){2}|1(02|16|18|21|25|38|50|52|54|59|61|63|64|73|74|77|97|99))");
 			m = p.matcher("ТШЯТЯВт888нн16ю256пп16");// ю,
-																				// б,
-																				// е,
-																				// й,
-																				// л,
-																				// м,
-																				// н,
-																				// п,
-																				// я,
-																				// р,
-																				// с,
-																				// у
+													// б,
+													// е,
+													// й,
+													// л,
+													// м,
+													// н,
+													// п,
+													// я,
+													// р,
+													// с,
+													// у
 			while (m.find()) {
 				System.out.println(m.group());
 			}
