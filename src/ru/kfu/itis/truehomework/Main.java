@@ -1,5 +1,6 @@
 package ru.kfu.itis.truehomework;
 
+import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,7 +38,7 @@ public class Main {
 		// 2c
 		System.out.println("\n2c:");
 		pattern = Pattern
-				.compile("[a-z0-9.]{1,}://([a-z0-9A-Z]{1,}.[a-z0-9A-Z]{1,}){1,}[.][\\w]{2,}([/][?=-a-z0-9A-Z_.]{1,})*");
+				.compile("[a-z0-9.]{1,}://([a-z0-9A-Z]{1,}.[a-z0-9A-Z]{1,}){1,}[.][\\w]{2,}([/][a-z0-9A-Z_.?=-]{1,})*");
 		matcher = pattern.matcher("http://www.google.com/it/just/works");
 		System.out.println(matcher.matches());
 
@@ -45,9 +46,23 @@ public class Main {
 
 		// 3
 		System.out.println("\n3:");
-		pattern = Pattern.compile("^.*[a-z&&0-9]+.*");
-		matcher = pattern.matcher("KSDSDCLMSLVa1SADC1SDF");
-		System.out.println(matcher.matches());
+		
+		
+		LinkedList<Pattern> p = new LinkedList<Pattern>();
+		p.add(Pattern.compile(".{8,32}"));
+		p.add(Pattern.compile(".*[A-Z].*"));
+		p.add(Pattern.compile(".*[a-z].*"));
+		p.add(Pattern.compile(".*[0-9].*"));
+		p.add(Pattern.compile(".*[.].*"));
+		String s = "WDVWDVSWDVVWEVWV125.h";
+		boolean b = true;
+		for(int i = 0; i<p.size() && b;i++){
+			if(!p.get(i).matcher(s).matches()){
+				b = false;
+			}
+		}
+		
+		System.out.println(b);
 		// end 3
 
 	}
